@@ -1,0 +1,4 @@
+/node_modules
+.env
+jet.config.ts
+tsconfig.json
