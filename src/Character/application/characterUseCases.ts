@@ -36,6 +36,8 @@ export class CharacterUseCase {
     public getCharacterByName = async (name :string) =>{
           const character = await this.characterRepository.getCharacterByName(name);
           return character;
-    }                         
-}
+    }     
+    
+ 
+ }
 

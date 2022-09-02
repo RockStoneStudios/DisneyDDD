@@ -14,7 +14,7 @@ const Character_1 = require("../Model/Character");
 class CharacterRepository {
     getAllCharacters() {
         return __awaiter(this, void 0, void 0, function* () {
-            const characters = yield Character_1.Character.findAll();
+            const characters = yield Character_1.Character.findAll({ include: 'Movie' });
             return characters;
         });
     }

@@ -2,7 +2,9 @@ import {MovieRepository} from '../Repository/movie.sql';
 import {MovieUseCase} from '../../application/movieUseCases';
 import {MovieController} from '../Controller/movieController';
 import {Router} from 'express';
-import router from '../../../User/infrastructure/Routes/userRouter';
+
+
+const router = Router();
 
 const movieRepository = new MovieRepository();
 

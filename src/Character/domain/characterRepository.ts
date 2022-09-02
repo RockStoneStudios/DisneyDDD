@@ -9,5 +9,6 @@ export interface ICharacterRepository {
     updateCharacter(character:ICharacter,id: string) : Promise<ICharacter|null>;
     deleteCharacter(id : string) : Promise<ICharacter|null>;
     getCharacterByName(name : string) : Promise<ICharacter|null>;
+  
 
 }

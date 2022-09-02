@@ -32,4 +32,8 @@ export class MovieRepository implements IMovieRepository {
         const movie = await Movie.findOne({where : {title: title}});
         return movie;
     }
+
+    async asociateMovie_Charcater(id: string): Promise<IMovie | any> {
+         
+    } 
 }

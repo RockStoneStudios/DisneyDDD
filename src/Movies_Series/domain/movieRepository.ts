@@ -8,4 +8,5 @@ export interface IMovieRepository {
     deleteMovie(id : string):Promise<IMovie|null>;
     updateMovie (movie :IMovie,id:string): Promise<IMovie|null>;
     getMovieByTitle(title :string): Promise<IMovie|null>;
+    asociateMovie_Charcater(id:string) : Promise<IMovie|null>
 }

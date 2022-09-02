@@ -37,4 +37,9 @@ export class MovieUseCase {
           const movie = await this.movieRepository.getMovieByTitle(title);
           return movie;
     }
+
+    public asociateMovie_Character = async (id:string) => {
+        const movie = await this.movieRepository.asociateMovie_Charcater(id);
+        return movie;
+    }
 }

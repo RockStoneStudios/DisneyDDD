@@ -1,7 +1,7 @@
 import {Model,DataTypes} from 'sequelize';
 import { IMovie } from '../../domain/movieEntity';
 import sequelize from '../DB/../../../Character/infrastructure/DB/connection';
-
+import {Character} from '../../../Character/infrastructure/Model/Character';
 export class Movie extends Model <IMovie>{
     declare id: string;
     declare image : string;
@@ -47,3 +47,10 @@ Movie.init({
      modelName : 'Movie',
      timestamps : false
 });
+
+Movie.belongsToMany(Character,{through : "Movie_Character"});
+Character.belongsToMany(Movie,{through : "Movie_Character"});
+
+
+
+

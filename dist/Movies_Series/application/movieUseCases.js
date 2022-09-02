@@ -40,6 +40,10 @@ class MovieUseCase {
             const movie = yield this.movieRepository.getMovieByTitle(title);
             return movie;
         });
+        this.asociateMovie_Character = (id) => __awaiter(this, void 0, void 0, function* () {
+            const movie = yield this.movieRepository.asociateMovie_Charcater(id);
+            return movie;
+        });
     }
 }
 exports.MovieUseCase = MovieUseCase;

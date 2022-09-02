@@ -48,6 +48,10 @@ class MovieRepository {
             return movie;
         });
     }
+    asociateMovie_Charcater(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+        });
+    }
 }
 exports.MovieRepository = MovieRepository;
 //# sourceMappingURL=movie.sql.js.map
