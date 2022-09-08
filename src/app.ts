@@ -5,6 +5,8 @@ import characterSql from './Character/infrastructure/DB/connection';
 import movieRoutes from './Movies_Series/infrastructure/Routes/movieRouter';
 import userRoutes from './User/infrastructure/Routes/userRouter';
 import characterRoutes from './Character/infrastructure/Routes/characterRouter';
+import genreRouter from './Genre/infrastructure/Routes/genreRouter';
+import movieCharacterRouter from './Movie_Character/infrastructure/Routes/movieCharacterRouter';
 
 class Server {
     private app:Application ;
@@ -12,7 +14,9 @@ class Server {
     private apiPath = {
          user : '/api/user',
          character : '/api/character',
-         movie : '/api/movies'
+         movie : '/api/movies',
+         genre : '/api/genre',
+         movieCharacter : '/api'
     }
 
     constructor() {
@@ -47,6 +51,8 @@ class Server {
         this.app.use(this.apiPath.user,userRoutes);
         this.app.use(this.apiPath.character,characterRoutes);
         this.app.use(this.apiPath.movie,movieRoutes);
+        this.app.use(this.apiPath.genre,genreRouter);
+        this.app.use(this.apiPath.movieCharacter,movieCharacterRouter);
     }
 
 

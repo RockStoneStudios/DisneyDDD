@@ -2,12 +2,15 @@ import {Model,DataTypes} from 'sequelize';
 import { IMovie } from '../../domain/movieEntity';
 import sequelize from '../DB/../../../Character/infrastructure/DB/connection';
 import {Character} from '../../../Character/infrastructure/Model/Character';
+import {Movie_Character} from '../../../Movie_Character/infrastructure/Model/MovieCharacter'
 export class Movie extends Model <IMovie>{
     declare id: string;
     declare image : string;
     declare title : string;
     declare date : string;
     declare qualification : number;
+    declare GenreId : string;
+    
     
 }
 
@@ -41,15 +44,19 @@ Movie.init({
             max : 5
         }
         
+    },
+    GenreId : {
+        type : DataTypes.STRING
     }
+   
 }, {
      sequelize,
      modelName : 'Movie',
      timestamps : false
 });
 
-Movie.belongsToMany(Character,{through : "Movie_Character"});
-Character.belongsToMany(Movie,{through : "Movie_Character"});
+Movie.belongsToMany(Character,{through : Movie_Character});
+Character.belongsToMany(Movie,{through : Movie_Character});
 
 
 

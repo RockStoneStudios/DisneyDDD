@@ -7,6 +7,7 @@ exports.Movie = void 0;
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../DB/../../../Character/infrastructure/DB/connection"));
 const Character_1 = require("../../../Character/infrastructure/Model/Character");
+const MovieCharacter_1 = require("../../../Movie_Character/infrastructure/Model/MovieCharacter");
 class Movie extends sequelize_1.Model {
 }
 exports.Movie = Movie;
@@ -38,12 +39,15 @@ Movie.init({
             min: 1,
             max: 5
         }
+    },
+    GenreId: {
+        type: sequelize_1.DataTypes.STRING
     }
 }, {
     sequelize: connection_1.default,
     modelName: 'Movie',
     timestamps: false
 });
-Movie.belongsToMany(Character_1.Character, { through: "Movie_Character" });
-Character_1.Character.belongsToMany(Movie, { through: "Movie_Character" });
+Movie.belongsToMany(Character_1.Character, { through: MovieCharacter_1.Movie_Character });
+Character_1.Character.belongsToMany(Movie, { through: MovieCharacter_1.Movie_Character });
 //# sourceMappingURL=Movie.js.map

@@ -3,11 +3,13 @@ import sequelize from '../../../Character/infrastructure/DB/connection';
 import { IMovie } from '../../../Movies_Series/domain/movieEntity';
 import { IGenre } from '../../domain/genreEntity';
 import { Movie } from '../../../Movies_Series/infrastructure/Model/Movie';
-export class Genre extends Model implements IGenre {
+
+
+export class Genre extends Model <IGenre> {
     declare id: string;
     declare image : string;
     declare name : string;
-    declare movies :IMovie[];
+  
     
 }
 

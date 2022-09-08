@@ -22,6 +22,24 @@ class GenreController {
                 return res.status(500).json(error);
             }
         });
+        this.getGenreById = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const genres = yield this.genreUseCase.getGenreById(req.params.id);
+                return res.status(200).json(genres);
+            }
+            catch (error) {
+                return res.status(500).json(error);
+            }
+        });
+        this.createGenre = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const newGenre = yield this.genreUseCase.createGenre(req.body);
+                return res.status(200).json({ message: `The genre ${newGenre === null || newGenre === void 0 ? void 0 : newGenre.name} has been Created with Successful` });
+            }
+            catch (error) {
+                return res.status(500).json(error);
+            }
+        });
     }
 }
 exports.GenreController = GenreController;

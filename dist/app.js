@@ -19,12 +19,16 @@ const connection_2 = __importDefault(require("./Character/infrastructure/DB/conn
 const movieRouter_1 = __importDefault(require("./Movies_Series/infrastructure/Routes/movieRouter"));
 const userRouter_1 = __importDefault(require("./User/infrastructure/Routes/userRouter"));
 const characterRouter_1 = __importDefault(require("./Character/infrastructure/Routes/characterRouter"));
+const genreRouter_1 = __importDefault(require("./Genre/infrastructure/Routes/genreRouter"));
+const movieCharacterRouter_1 = __importDefault(require("./Movie_Character/infrastructure/Routes/movieCharacterRouter"));
 class Server {
     constructor() {
         this.apiPath = {
             user: '/api/user',
             character: '/api/character',
-            movie: '/api/movies'
+            movie: '/api/movies',
+            genre: '/api/genre',
+            movieCharacter: '/api'
         };
         dotenv_1.default.config();
         this.app = (0, express_1.default)();
@@ -54,6 +58,8 @@ class Server {
         this.app.use(this.apiPath.user, userRouter_1.default);
         this.app.use(this.apiPath.character, characterRouter_1.default);
         this.app.use(this.apiPath.movie, movieRouter_1.default);
+        this.app.use(this.apiPath.genre, genreRouter_1.default);
+        this.app.use(this.apiPath.movieCharacter, movieCharacterRouter_1.default);
     }
 }
 new Server();

@@ -7,13 +7,15 @@ export class MovieValue implements IMovie {
     title : string;
     date : string;
     qualification : number;
+    GenreId : string;
 
-    constructor({image,title,date,qualification}:{image : string,title:string,date:string,qualification:number}){
+    constructor({image,title,date,qualification,GenreId}:{image : string,title:string,date:string,qualification:number,GenreId : string}){
         this.id = v4();
         this.image = image;
         this.title = title;
         this.date = date;
         this.qualification = qualification;
+        this.GenreId = GenreId;
 
     }
 }

@@ -1,5 +1,4 @@
 import {IGenreRepository} from '../domain/genreRepository';
-import {IMovie} from '../../Movies_Series/domain/movieEntity';
 import {GenreValue} from '../domain/genreValue';
 
 
@@ -16,9 +15,10 @@ export class GenreUseCase {
          return genre;
     }
 
-    public createGenreById = async ({image,name,movies}:{image:string,name:string,movies:IMovie[]})=>{
-            const newGenre = new GenreValue({image,name,movies});
-            const genre = this.genreRepository.createGenre(newGenre);
+    public createGenre = async ({image,name}:{image:string,name:string})=>{
+            const newGenre = new GenreValue({image,name});
+            const genre = await this.genreRepository.createGenre(newGenre);
+            return genre;
 
     }
 }

@@ -10,11 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovieRepository = void 0;
+const Genre_1 = require("../../../Genre/infrastructure/Model/Genre");
 const Movie_1 = require("../Model/Movie");
 class MovieRepository {
     getAllMovie() {
         return __awaiter(this, void 0, void 0, function* () {
-            const movies = yield Movie_1.Movie.findAll();
+            const movies = yield Movie_1.Movie.findAll({ include: { model: Genre_1.Genre, attributes: ['name'] }, attributes: { exclude: ["GenreId"] } });
             return movies;
         });
     }

@@ -22,9 +22,10 @@ class GenreUseCase {
             const genre = yield this.genreRepository.getGenreById(id);
             return genre;
         });
-        this.createGenreById = ({ image, name, movies }) => __awaiter(this, void 0, void 0, function* () {
-            const newGenre = new genreValue_1.GenreValue({ image, name, movies });
-            const genre = this.genreRepository.createGenre(newGenre);
+        this.createGenre = ({ image, name }) => __awaiter(this, void 0, void 0, function* () {
+            const newGenre = new genreValue_1.GenreValue({ image, name });
+            const genre = yield this.genreRepository.createGenre(newGenre);
+            return genre;
         });
     }
 }

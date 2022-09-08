@@ -22,8 +22,8 @@ class MovieUseCase {
             const movie = yield this.movieRepository.getMovieById(id);
             return movie;
         });
-        this.createMovie = ({ image, title, date, qualification }) => __awaiter(this, void 0, void 0, function* () {
-            const newMovie = new movieValue_1.MovieValue({ image, title, date, qualification });
+        this.createMovie = ({ image, title, date, qualification, GenreId }) => __awaiter(this, void 0, void 0, function* () {
+            const newMovie = new movieValue_1.MovieValue({ image, title, date, qualification, GenreId });
             const movie = yield this.movieRepository.createMovie(newMovie);
             return movie;
         });
@@ -31,17 +31,13 @@ class MovieUseCase {
             const movie = yield this.movieRepository.deleteMovie(id);
             return movie;
         });
-        this.updateMovie = ({ image, title, date, qualification }, id) => __awaiter(this, void 0, void 0, function* () {
-            const updateMovie = new movieValue_1.MovieValue({ image, title, date, qualification });
+        this.updateMovie = ({ image, title, date, qualification, GenreId }, id) => __awaiter(this, void 0, void 0, function* () {
+            const updateMovie = new movieValue_1.MovieValue({ image, title, date, qualification, GenreId });
             const movie = yield this.movieRepository.updateMovie(updateMovie, id);
             return movie;
         });
         this.getMovieByTitle = (title) => __awaiter(this, void 0, void 0, function* () {
             const movie = yield this.movieRepository.getMovieByTitle(title);
-            return movie;
-        });
-        this.asociateMovie_Character = (id) => __awaiter(this, void 0, void 0, function* () {
-            const movie = yield this.movieRepository.asociateMovie_Charcater(id);
             return movie;
         });
     }

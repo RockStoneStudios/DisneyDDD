@@ -6,14 +6,14 @@ export class GenreValue implements IGenre {
      id:string;
      image : string;
      name : string;
-     movies : IMovie[];
+   //   movies : IMovie[];
 
 
-     constructor({image,name,movies}:{image : string,name:string,movies: IMovie[]}){
+     constructor({image,name}:{image : string,name:string}){
         this.id = v4();
         this.image = image;
         this.name = name;
-        this.movies = movies;
+      //   this.movies = movies;
      }
 
 

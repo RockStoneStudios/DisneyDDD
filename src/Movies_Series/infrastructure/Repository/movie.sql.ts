@@ -1,3 +1,4 @@
+import { Genre } from '../../../Genre/infrastructure/Model/Genre';
 import {IMovie} from '../../domain/movieEntity';
 import { IMovieRepository } from '../../domain/movieRepository';
 import { Movie } from '../Model/Movie';
@@ -5,7 +6,7 @@ import { Movie } from '../Model/Movie';
 
 export class MovieRepository implements IMovieRepository {
     async getAllMovie(): Promise<IMovie[] | null> {
-        const movies = await Movie.findAll();
+        const movies = await Movie.findAll({include : {model : Genre,attributes : ['name']},attributes : {exclude :["GenreId"]}});
         return movies;
     }
 
@@ -34,6 +35,6 @@ export class MovieRepository implements IMovieRepository {
     }
 
     async asociateMovie_Charcater(id: string): Promise<IMovie | any> {
-         
+           
     } 
 }

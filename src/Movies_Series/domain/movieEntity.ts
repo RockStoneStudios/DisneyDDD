@@ -4,4 +4,5 @@ export interface IMovie{
     title : string;
     date :  string;
     qualification :  number;
+    GenreId : string
 }

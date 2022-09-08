@@ -15,9 +15,9 @@ export class MovieUseCase {
         return movie;
     }
 
-    public createMovie = async ({image,title,date,qualification}:
-                         {image : string,title:string,date:string,qualification :number})=>{
-          const newMovie = new MovieValue({image,title,date,qualification});
+    public createMovie = async ({image,title,date,qualification,GenreId}:
+                         {image : string,title:string,date:string,qualification :number,GenreId : string})=>{
+          const newMovie = new MovieValue({image,title,date,qualification,GenreId});
           const movie = await this.movieRepository.createMovie(newMovie);
           return movie;
     }
@@ -26,9 +26,9 @@ export class MovieUseCase {
         return movie;
     }
 
-    public updateMovie = async ({image,title,date,qualification}:
-                        {image:string,title:string,date:string,qualification:number},id:string)=>{
-                         const updateMovie = new MovieValue({image,title,date,qualification});
+    public updateMovie = async ({image,title,date,qualification,GenreId}:
+                        {image:string,title:string,date:string,qualification:number,GenreId:string},id:string)=>{
+                         const updateMovie = new MovieValue({image,title,date,qualification,GenreId});
                          const movie = await this.movieRepository.updateMovie(updateMovie,id);
                          return movie;
 
@@ -38,8 +38,8 @@ export class MovieUseCase {
           return movie;
     }
 
-    public asociateMovie_Character = async (id:string) => {
-        const movie = await this.movieRepository.asociateMovie_Charcater(id);
-        return movie;
-    }
+    // public asociateMovie_Character = async (id:string) => {
+    //     const movie = await this.movieRepository.asociateMovie_Charcater(id);
+    //     return movie;
+    // }
 }

@@ -7,7 +7,7 @@ import {Character} from '../Model/Character';
 export class CharacterRepository implements ICharacterRepository {
 
     async getAllCharacters(): Promise<ICharacter[]|any> {
-         const characters = await Character.findAll({include : 'Movie'});
+         const characters = await Character.findAll();
          return characters;
     }
 
